@@ -1,0 +1,24 @@
+
+# This .env file contains sensitive data and should not be committed to version control
+.env
+.env.local
+.env.*.local
+
+# Ruby/Bundler
+.bundle/
+vendor/bundle/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# test artifacts
+coverage/
+tmp/
+log/
+
+*.gem
