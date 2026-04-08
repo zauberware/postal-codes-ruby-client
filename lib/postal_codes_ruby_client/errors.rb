@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module PostalCodesClient
+module PostalCodesRubyClient
   class Error < StandardError; end
 
   class AuthenticationError < Error; end

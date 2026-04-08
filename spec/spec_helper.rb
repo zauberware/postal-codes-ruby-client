@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require "postal_codes_client"
+require "postal_codes_ruby_client"
 require "webmock/rspec"
 
 RSpec.configure do |config|
   config.before(:each) do
-    PostalCodesClient.reset!
+    PostalCodesRubyClient.reset!
   end
 end

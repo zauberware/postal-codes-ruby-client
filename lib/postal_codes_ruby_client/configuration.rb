@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module PostalCodesClient
+module PostalCodesRubyClient
   class Configuration
     attr_accessor :base_url, :api_token, :timeout
 

@@ -4,16 +4,15 @@ require "net/http"
 require "uri"
 require "json"
 
-module PostalCodesClient
+module PostalCodesRubyClient
   class Client
-    attr_reader :auth, :postal_codes
+    attr_reader :postal_codes
 
     def initialize(api_token: nil, base_url: nil)
-      @api_token = api_token || PostalCodesClient.configuration.api_token
-      @base_url  = base_url  || PostalCodesClient.configuration.base_url
-      @timeout   = PostalCodesClient.configuration.timeout
+      @api_token = api_token || PostalCodesRubyClient.configuration.api_token
+      @base_url  = base_url  || PostalCodesRubyClient.configuration.base_url
+      @timeout   = PostalCodesRubyClient.configuration.timeout
 
-      @auth         = Resources::Auth.new(self)
       @postal_codes = Resources::PostalCodes.new(self)
     end
 

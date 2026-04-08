@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-RSpec.describe PostalCodesClient do
+RSpec.describe PostalCodesRubyClient do
   describe ".configure" do
     it "stores configuration" do
       described_class.configure do |config|

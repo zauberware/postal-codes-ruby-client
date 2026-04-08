@@ -2,10 +2,10 @@
 
 require "spec_helper"
 
-RSpec.describe PostalCodesClient::Resources::PostalCodes do
+RSpec.describe PostalCodesRubyClient::Resources::PostalCodes do
   let(:base_url) { "http://localhost:3000" }
   let(:token)    { "test_token" }
-  let(:client)   { PostalCodesClient::Client.new(api_token: token, base_url: base_url) }
+  let(:client)   { PostalCodesRubyClient::Client.new(api_token: token, base_url: base_url) }
   let(:json_headers) { { "Content-Type" => "application/json" } }
 
   describe "#search" do
@@ -60,7 +60,7 @@ RSpec.describe PostalCodesClient::Resources::PostalCodes do
           headers: json_headers
         )
 
-      expect { client.postal_codes.search(q: "") }.to raise_error(PostalCodesClient::ValidationError)
+      expect { client.postal_codes.search(q: "") }.to raise_error(PostalCodesRubyClient::ValidationError)
     end
   end
 

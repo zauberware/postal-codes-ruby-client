@@ -1,4 +1,4 @@
-# PostalCodesClient
+# PostalCodesRubyClient
 
 Ruby-Client-Gem für die PLZ API – Postleitzahlen-Suche über 100+ Länder.
 
@@ -6,23 +6,23 @@ Ruby-Client-Gem für die PLZ API – Postleitzahlen-Suche über 100+ Länder.
 
 ```ruby
 # Gemfile
-gem "postal_codes_client", path: "../postal_codes_client"
+gem "postal_codes_ruby_client", path: "../postal_codes_ruby_client"
 ```
 
 Oder als lokales Gem:
 
 ```bash
-cd postal_codes_client
-gem build postal_codes_client.gemspec
-gem install postal_codes_client-0.1.0.gem
+cd postal_codes_ruby_client
+gem build postal_codes_ruby_client.gemspec
+gem install postal_codes_ruby_client-0.1.0.gem
 ```
 
 ## Konfiguration
 
 ```ruby
-require "postal_codes_client"
+require "postal_codes_ruby_client"
 
-PostalCodesClient.configure do |config|
+PostalCodesRubyClient.configure do |config|
   config.base_url  = "http://localhost:3000"  # Standard
   config.api_token = "dein_api_token"
   config.timeout   = 30                       # Sekunden (Standard)
@@ -35,10 +35,10 @@ end
 
 ```ruby
 # Globale Konfiguration nutzen
-client = PostalCodesClient::Client.new
+client = PostalCodesRubyClient::Client.new
 
 # Oder Token direkt übergeben
-client = PostalCodesClient::Client.new(
+client = PostalCodesRubyClient::Client.new(
   api_token: "dein_api_token",
   base_url: "https://api.example.com"
 )
@@ -64,13 +64,13 @@ puts countries[:countries].join(", ")
 ```ruby
 begin
   client.postal_codes.search(q: "803")
-rescue PostalCodesClient::AuthenticationError => e
+rescue PostalCodesRubyClient::AuthenticationError => e
   puts "Nicht autorisiert: #{e.message}"
-rescue PostalCodesClient::ValidationError => e
+rescue PostalCodesRubyClient::ValidationError => e
   puts "Validierungsfehler: #{e.errors.join(', ')}"
-rescue PostalCodesClient::ApiError => e
+rescue PostalCodesRubyClient::ApiError => e
   puts "API-Fehler (#{e.status}): #{e.message}"
-rescue PostalCodesClient::Error => e
+rescue PostalCodesRubyClient::Error => e
   puts "Fehler: #{e.message}"
 end
 ```

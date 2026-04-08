@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module PostalCodesClient
+module PostalCodesRubyClient
   module Resources
     class PostalCodes
       def initialize(client)

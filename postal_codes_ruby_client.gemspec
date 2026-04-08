@@ -1,15 +1,15 @@
 # frozen_string_literal: true
 
-require_relative "lib/postal_codes_client/version"
+require_relative "lib/postal_codes_ruby_client/version"
 
 Gem::Specification.new do |spec|
-  spec.name    = "postal_codes_client"
-  spec.version = PostalCodesClient::VERSION
-  spec.authors = ["PLZ API"]
+  spec.name    = "postal_codes_ruby_client"
+  spec.version = PostalCodesRubyClient::VERSION
+  spec.authors = ["zauberware technologies"]
   spec.summary = "Ruby client for the PLZ (Postleitzahlen) API"
   spec.description = "A Ruby gem to search postal codes across 100+ countries via the PLZ API. " \
                      "Supports authentication, postal code search, and country listing."
-  spec.homepage = "https://github.com/postal-codes-rails"
+  spec.homepage = "https://github.com/zauberware/postal-codes-ruby-client"
   spec.license  = "MIT"
   spec.required_ruby_version = ">= 3.1"
 
