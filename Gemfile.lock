@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    postal_codes_ruby_client (0.1.3)
+    postal_codes_ruby_client (0.1.4)
 
 GEM
   remote: https://rubygems.org/
