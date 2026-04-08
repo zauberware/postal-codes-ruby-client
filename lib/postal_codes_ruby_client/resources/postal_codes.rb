@@ -17,14 +17,14 @@ module PostalCodesRubyClient
         params = { q: q }
         params[:country] = country if country
         params[:limit] = limit if limit
-        @client.get("/api/v1/postal_codes", params)
+        @client.get('/api/v1/postal_codes', params)
       end
 
       # List all available country codes.
       #
       # @return [Hash] { countries: ["AT", "CH", "DE", ...] }
       def countries
-        @client.get("/api/v1/postal_codes/countries")
+        @client.get('/api/v1/postal_codes/countries')
       end
     end
   end

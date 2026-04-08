@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require "net/http"
-require "uri"
-require "json"
+require 'net/http'
+require 'uri'
+require 'json'
 
 module PostalCodesRubyClient
   class Client
@@ -17,9 +17,7 @@ module PostalCodesRubyClient
     end
 
     # Update the API token (e.g. after login or token regeneration).
-    def api_token=(token)
-      @api_token = token
-    end
+    attr_writer :api_token
 
     # Perform a GET request.
     def get(path, params = {})
@@ -34,7 +32,7 @@ module PostalCodesRubyClient
       request = Net::HTTP::Post.new(uri)
       if body
         request.body = JSON.generate(body)
-        request["Content-Type"] = "application/json"
+        request['Content-Type'] = 'application/json'
       end
       execute(uri, request)
     end
@@ -48,11 +46,11 @@ module PostalCodesRubyClient
     end
 
     def execute(uri, request)
-      request["Authorization"] = "Bearer #{@api_token}" if @api_token
-      request["Accept"] = "application/json"
+      request['Authorization'] = "Bearer #{@api_token}" if @api_token
+      request['Accept'] = 'application/json'
 
       http = Net::HTTP.new(uri.host, uri.port)
-      http.use_ssl = uri.scheme == "https"
+      http.use_ssl = uri.scheme == 'https'
       http.open_timeout = @timeout
       http.read_timeout = @timeout
 
@@ -67,10 +65,10 @@ module PostalCodesRubyClient
       when 200, 201
         body
       when 401
-        raise AuthenticationError, body&.dig(:error) || "Unauthorized"
+        raise AuthenticationError, body&.dig(:error) || 'Unauthorized'
       when 422
         raise ValidationError.new(
-          body&.dig(:error) || "Validation failed",
+          body&.dig(:error) || 'Validation failed',
           errors: body&.dig(:errors) || []
         )
       else
