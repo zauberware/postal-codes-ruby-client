@@ -44,33 +44,6 @@ client = PostalCodesClient::Client.new(
 )
 ```
 
-### Authentifizierung
-
-```ruby
-# Registrierung
-result = client.auth.signup(
-  email: "user@example.com",
-  password: "geheim123",
-  password_confirmation: "geheim123",
-  name: "Max Mustermann"
-)
-puts result[:api_token]
-
-# Login
-result = client.auth.login(email: "user@example.com", password: "geheim123")
-client.api_token = result[:api_token]
-
-# Profil abrufen
-me = client.auth.me
-puts me[:user][:email]
-
-# Token erneuern
-new_token = client.auth.regenerate_token
-client.api_token = new_token[:api_token]
-```
-
-### Postleitzahlen suchen
-
 ```ruby
 # PLZ-Suche (Teilsuche möglich)
 results = client.postal_codes.search(q: "803", country: "DE")
@@ -106,9 +79,5 @@ end
 
 | Methode | Beschreibung |
 |---------|-------------|
-| `client.auth.signup(email:, password:, password_confirmation:, name:)` | Registrierung |
-| `client.auth.login(email:, password:)` | Login |
-| `client.auth.regenerate_token` | Token erneuern |
-| `client.auth.me` | Eigenes Profil |
 | `client.postal_codes.search(q:, country:, limit:)` | PLZ-Suche |
 | `client.postal_codes.countries` | Verfügbare Länder |
